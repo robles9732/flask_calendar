@@ -18,18 +18,18 @@ def obter_calendario():
     comeco_do_mes = date(ano, mes, 1)   # Define o dia primeiro do mês como data usando a biblioteca datetime
     dia_da_semana = comeco_do_mes.weekday() # define em que dia da semana o dia primeiro cai, usando a função weekday do datetime 
     lista_meses=['Janeiro',    # gera uma lista com os nomes dos meses
-              'Fevereiro', 
-              'Março', 
-              'Abril', 
-              'Maio', 
-              'Junho', 
-              'Julho',
-              'Agosto',
-              'Setembro',
-              'Outubro',
-              'Novembro',
-              'Dezembro'
-              ]
+                'Fevereiro', 
+                'Março', 
+                'Abril', 
+                'Maio', 
+                'Junho', 
+                'Julho',
+                'Agosto',
+                'Setembro',
+                'Outubro',
+                'Novembro',
+                'Dezembro'
+               ]
     nome_mes = lista_meses[mes-1]  # Encontra o mês escolhido no índice da lista, já que os meses estão entre 1 a 12, e os indices entre 0 a 11
     matriz_deslocada = np.roll(matriz, shift=dia_da_semana) # Desloca a matriz usando a função roll() do numpay, para alinhar o dia 1 com o dia da semana, na matriz
 
