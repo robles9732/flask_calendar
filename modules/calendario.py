@@ -33,6 +33,6 @@ def obter_calendario():
     nome_mes = lista_meses[mes-1]  # Encontra o mês escolhido no índice da lista, já que os meses estão entre 1 a 12, e os indices entre 0 a 11
     matriz_deslocada = np.roll(matriz, shift=dia_da_semana) # Desloca a matriz usando a função roll() do numpay, para alinhar o dia 1 com o dia da semana, na matriz
 
-    return [matriz_deslocada, nome_mes, str(dia_hoje)] # Retorna a matriz em forma de lista de listas "[0]" o nome do mês "[1]" e o dia atual "[2]"
+    return [matriz_deslocada, nome_mes, dia_hoje] # Retorna a matriz em forma de lista de listas "[0]" o nome do mês "[1]" e o dia atual "[2]"
 
 
