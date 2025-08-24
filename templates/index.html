@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Caledário</title>
+
+    <style>
+        body {
+            margin: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=calendario>
+        <table>
+            <tr>
+                {% for nomes in calendario % }
+                <th>
+                    {{ dias_semana }}
+                </th>
+                {% endfor %}
+            </tr>
+            {% for semana in calendario % }
+            <tr>
+                {% for dia in semana %}
+                <td>
+                    {{ calendario.dia }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
