@@ -4,6 +4,7 @@ O projeto gera um calendário atual, renderizando uma tabela com o calendário u
 
 ## Tecnologias
 - HMTL + CSS
+- Javascript
 - Python
 - Flask
      
