@@ -148,7 +148,7 @@ env.bak/
 venv.bak/
 
 
-__inti__.py
+__init__.py
 # Spyder project settings
 .spyderproject
 .spyproject
