@@ -13,32 +13,150 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             padding: 2em;
+            user-select: none;
+            font-family: Arial, Helvetica, sans-serif
         }
-    </style>
+
+        table {
+            cursor: pointer;
+            border-spacing: 0;
+            padding: 5px;
+            box-shadow: 1px 6px 12px 8px #0005;
+
+        }
+
+        th {
+            font-size: small;
+            background-color: darkblue;
+            color: white;
+            padding: 6px 2px;
+        }
+
+        td {
+            width: 2em;
+        }
+
+        .calendario {
+            padding: 5px;
+
+        }
+
+        .dias {
+            background-color: blue;
+            border-radius: 7px;
+            text-align: center;
+            color: white;
+        }
+
+        .dias:hover{
+            background-color: #08f;
+        }
+
+        .hoje {
+            background-color: red;
+            color: yellow;
+        }
+
+        .hoje:hover{
+            background-color: #f76;
+        }
+
+        .mes {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            border-radius: 10px 10px 0 0;
+            padding: 5px;
+        }
+
+        .texto_data{
+            margin: 1em;
+        }
+        
+        input{
+            width: 10em;
+            font-weight: bold;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .oculto{
+            display: none;
+        }
+
+        </style>
 </head>
 
 <body>
-    <div class=calendario>
+    <div class="calendario">
+        <div class="mes">
+            {{ mes_nome_atual }}
+        </div>
+        <div class="oculto">
+            <label id="mes_numero">{{ mes_numero }}</label>
+            <label id="ano_numero">{{ ano_numero }}</label>
+        </div>
         <table>
             <tr>
-                {% for nomes in calendario % }
                 <th>
-                    {{ dias_semana }}
+                    Seg
                 </th>
-                {% endfor %}
+                <th>
+                    Ter
+                </th>
+                <th>
+                    Qua
+                </th>
+                <th>
+                    Qui
+                </th>
+                <th>
+                    Sex
+                </th>
+                <th>
+                    Sáb
+                </th>
+                <th>
+                    Dom
+                </th>
             </tr>
-            {% for semana in calendario % }
+            {% for semana in calendario %}
             <tr>
                 {% for dia in semana %}
+                {% if dia == dia_hoje %}
                 <td>
-                    {{ calendario.dia }}
+                    <div class="dias hoje" onclick="preencherData(this)">
+                        {{ dia }}
+                    </div>
+                </td>
+                {% else %}
+                <td>
+                    <div class="dias" onclick="preencherData(this)">
+                        {{ dia }}
+                    </div>
+                    {% endif %}
                 </td>
                 {% endfor %}
             </tr>
             {% endfor %}
         </table>
     </div>
+    <div class="texto_data">
+        <form>
+            <input id="data" />
+        </form>
+    </div>
 </body>
+<script>
+    function preencherData(celula){
+        const txData = document.getElementById("data")
+        const lbMes = document.getElementById("mes_numero").innerText
+        const lbAno = document.getElementById("ano_numero").innerText
+        let dia = celula.innerText
+        txData.value = dia.padStart(2, '0') + "/" + lbMes.padStart(2, '0') + "/" + lbAno  //.padStart(2, '0')
 
+    }
+</script>
 </html>
